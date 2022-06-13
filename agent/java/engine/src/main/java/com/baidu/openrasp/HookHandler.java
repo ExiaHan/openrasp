@@ -29,6 +29,9 @@ import com.baidu.openrasp.request.DubboRequest;
 import com.baidu.openrasp.request.HttpServletRequest;
 import com.baidu.openrasp.response.HttpServletResponse;
 import com.baidu.openrasp.transformer.CustomClassTransformer;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
@@ -268,6 +271,18 @@ public class HookHandler {
             responseCache.get().sendError(parameter);
         }
         throw securityException;
+    }
+
+    /**
+     * When coolmool userlogin is called
+     * we just print the data it get, just for investing
+     * @param msg The Coolmool message
+     * @param flag A boolean value which usually is false
+     */
+    public static void onCoolmoolUserLogin(Object msg, boolean flag) {
+        LOGGER.info("Coolmool userlogin invoked");
+        Gson gson = new GsonBuilder().disableHtmlEscaping().serializeNulls().setPrettyPrinting().create();
+        LOGGER.info(gson.toJson(msg));
     }
 
     /**

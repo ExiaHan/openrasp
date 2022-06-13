@@ -21,6 +21,7 @@ import com.baidu.openrasp.config.Config;
 import com.baidu.openrasp.dependency.DependencyFinder;
 import com.baidu.openrasp.detector.ServerDetectorManager;
 import com.baidu.openrasp.hook.AbstractClassHook;
+import com.baidu.openrasp.hook.coolmool.CoolmoolUserLoginHook;
 import com.baidu.openrasp.messaging.ErrorType;
 import com.baidu.openrasp.messaging.LogTool;
 import com.baidu.openrasp.tool.annotation.AnnotationScanner;
